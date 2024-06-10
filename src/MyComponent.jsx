@@ -4,7 +4,7 @@ const MyComponent = (props) => {
     const [data, setData] = useState(0);
 
     const handleClickBtn = () => {
-        setData(data+2);
+        setData(data+1);
     }
     return (
         <>
