@@ -39,17 +39,17 @@ const Join = () =>{
 
     const join = () => {
         if(!id){
-            alert("아이디를 입력해주세요!")
+            alert("아이디를 입력해주세요")
             inputRef.current[0].focus();
             return;
         }
         else if(!pw){
-            alert("비밀번호를 입력해주세요!")
+            alert("비밀번호를 입력해주세요")
             inputRef.current[1].focus();
             return;
         }
         else if(!name){
-            alert("이름을 입력해주세요!")
+            alert("이름을 입력해주세요")
             inputRef.current[2].focus();
             return;
         }
