@@ -1,0 +1,14 @@
+*{
+    margin:0; padding: 0; box-sizing: border-box;
+}
+nav{ overflow: hidden; }
+nav li{ float: left; list-style: none; width: 50%; }
+.container{
+    width: 400px;
+    margin: 100px auto;
+    text-align: center;
+    border:1px solid black;
+}
+.container table{
+    width: 100%;
+}
