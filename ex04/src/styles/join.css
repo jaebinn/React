@@ -1,0 +1,11 @@
+h2{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+ul{
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
