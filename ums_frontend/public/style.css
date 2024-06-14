@@ -1,0 +1,584 @@
+*{
+    box-sizing: border-box;
+    padding: 0; margin: 0;
+}
+body{
+    background-color: #fff;
+    min-height: 1000px;
+}
+body.user{
+    background-color: rgb(245, 245, 245);
+}
+ol,ul{
+	list-style: none;
+}
+input{
+    box-sizing: border-box;
+    cursor: pointer;
+}
+table{ border-collapse: collapse; margin:0 auto;}
+td,th{ padding: 10px; text-align: center; vertical-align: middle;}
+header, #wrap{
+    width:1000px;
+    margin: 0 auto;
+}
+
+a{
+    text-decoration:none;
+    border:none;
+    vertical-align: middle;
+    color:#fff;
+}
+.center{
+    margin:0 auto;
+}
+.row{
+	display:flex;
+	flex-wrap:wrap;
+	box-sizing: border-box;
+	align-items: stretch;
+    overflow: visible;
+}
+
+.btn_area{
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+}
+.btn_area > *{
+    display:inline-block;
+    margin-left:10px;
+    margin-right:10px;
+}
+.btn_area a[class*='btn']:nth-child(n+2){
+    margin-left: 5px;
+}
+input[type=text], input[type=password], textarea{
+    display: inline-block;
+    padding:10px;
+    width:200px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+input[type=text]:focus, input[type=password]:focus{
+    border:1px solid rgb(0,200,80);
+}
+.common-dropdown {
+    position: relative;
+    display: inline-block;
+    width:200px;
+}
+  
+.dropdown-button {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+  
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: center;
+    background-color: white;
+    color:black;
+    border-radius: 4px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+    margin-left: 1px;
+    margin-top: 1px;
+}
+.dropdown-content li {
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.dropdown-content li:hover{
+    background-color: rgb(0,200,80);
+    color:white;
+}
+.dropdown-content.show {
+    max-height: 500px; /* 원하는 높이로 조절하세요 */
+    transition: max-height 0.3s ease-in-out;
+    border: 1px solid #ccc;
+    margin-left: 0;
+    margin-top: 0;
+}
+/* 버튼 */
+input[type=submit], input[type=button]:not(.dropdown-button), a[class*=btn]{
+    display: inline-block;
+    padding:10px 20px;
+    width:120px;
+    background-color:rgb(0,200,80);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    color:#fff;
+    border:none;
+    text-align: center;
+}
+.small-btn{
+    padding:9px 10px;
+    width:80px;
+    font-size: 14px;
+}
+.half-btn{
+    padding: 10px 12px;
+    width:48.5% !important;
+}
+.half-btn+.half-btn{
+    margin-left: 3%;
+}
+.big-btn{
+    text-align: center;
+    width:100%;
+}
+/* Header */
+header{
+    display:flex;
+    justify-content: end;
+    align-items: end;
+    margin:20px auto;
+}
+header .title{
+    width:630px;
+    margin: 0;
+}
+header .title td{
+    padding: 0;
+}
+header .title a{
+    color:rgb(0,200,80);
+    font-size: 40px;
+}
+header .header_area{
+    width:370px;
+    margin:0;
+}
+header .header_area td:nth-child(1){
+    width: 160px;
+    font-size: 14px;
+}
+header .header_area td:nth-child(2){
+    padding: 10px 0;
+}
+header .header_area td:nth-child(2) a{
+    font-size: 14px;
+}
+
+/* Footer */
+footer{
+	box-sizing: border-box;
+	margin-top:80px;
+	padding: 30px;
+	height:200px;
+	background-color: rgb(0, 200, 80);
+}
+footer > .center{
+	margin: 0 auto;
+	width: 1000px;
+	display: flex;
+	justify-content: space-evenly;
+}
+footer > .center > .copy{
+	box-sizing: border-box;
+	color:white;
+	font-size: 24px;
+	border:2px solid #fff;
+	border-radius: 10px;
+	height:140px;
+	width:300px;
+	padding-top: 10px;
+	text-align: center;
+}
+footer > .center > .copy > .contact{
+	margin-top:15px;
+	font-size: 16px;
+	text-align: left;
+	padding:20px;
+	padding-top:0;
+}
+footer > .center > .copy > .contact > .addr{
+	margin-top:5px;
+}
+footer > .center > .sns_area{
+	box-sizing: border-box;
+	width:610px;
+	border:2px solid #fff;
+	border-radius: 10px;
+	height:140px;
+	display: flex;
+}
+footer > .center > .sns_area > .ad_box{
+	box-sizing: border-box;
+	width:400px;
+	height:140px;
+	border-right:2px solid #fff;
+	color:white;
+	text-align: center;
+	line-height: 140px;
+	font-size: 50px;
+}
+footer > .center > .sns_area > .sns_box{
+	width:400px;
+	padding:10px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+footer > .center > .sns_area > .sns_box > a{
+	display: inline-block;
+	width:50%;
+	border-radius: 0;
+	background-color:transparent;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	
+}
+footer > .center > .sns_area > .sns_box .text{
+	background: url("../images/instagram.png") no-repeat 5px 8px/ 44px 44px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 18.5px 0 18.5px 60px;
+    font-size: 16px;
+}
+footer > .center > .sns_area > .sns_box .youtube .text{
+	background-image: url("../images/youtube.png");
+}
+footer > .center > .sns_area > .sns_box .tistory .text{
+	background: url("../images/tistory.png") no-repeat -180px -216px/250px;
+}
+footer > .center > .sns_area > .sns_box .thread .text{
+	background-image: url("../images/thread.png");
+}
+
+/* LoginPage*/
+
+#wrap.login{
+    width: 600px;
+    height: 400px;
+    margin: 100px auto;
+}
+/* JoinPage */
+[name=joinForm] td, [name=myinfoForm] td{
+    text-align: center;
+}
+
+[name=joinForm] th, [name=myinfoForm] th{
+    width:130px;
+}
+[name=joinForm] input[type=text], [name=joinForm] input[type=password],
+[name=myinfoForm] input[type=text], [name=myinfoForm] input[type=password]{
+    width:100%;
+}
+[name=joinForm] input.input-with-btn,
+[name=myinfoForm] input.input-with-btn{
+    width:330px;
+}
+[name=joinForm] .small-btn,
+[name=myinfoForm] .small-btn{
+    display: inline-block;
+    border:none;
+    background-color:rgb(0,200,80);
+    padding:9px 10px;
+    width:135px;
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+[name=joinForm] #result{
+    color: #e91e63;
+    font-weight: bold;
+    height: 40px;
+    line-height: 20px;
+}
+.pw_check{
+    padding:10px 15px;
+    margin:10px 0 0 0;
+    border:1px solid rgb(0,200,80);
+    background:#fff;
+    font-size:80%;
+    font-weight: bold;
+    text-align: left;
+}
+.pw_check span{
+    display: block;
+    margin-left:10.45px;
+}
+.pw_check span::before{
+    content:'';
+}
+.pw_check .pct, .pw_check .pcf{
+    margin-left:0px;
+}
+.pw_check .pct::before{
+    content:'✔';
+    position: relative;
+    left:-5px;
+}
+.pw_check .pcf::before{
+    content:'✖';
+    position: relative;
+    left:-5px;
+}
+.pct{
+    color:rgb(0,200,80);
+}
+.pcf{
+    color:red;
+}
+.gender_area > td > div{
+    display: flex;
+    font-size:16px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.gender_area ul{
+    list-style: none;
+    width:50%;
+    font-size:0;
+    margin: 0;
+    padding: 0;
+}
+.gender_area ul:last-of-type{
+    margin-left: 10px;
+}
+.gender_area li{
+    display: inline-block;
+    width:50%;
+    margin:0;
+    padding:0;
+    border-radius: 5px 0 0 5px;
+}
+.gender_area ul li:last-of-type{
+    border-radius: 0 5px 5px 0;
+}
+.gender_area li > input[type=radio]{
+    width:0px;
+    height:0px;
+    margin:-1px;
+    overflow:hidden;
+    position:absolute;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    border: none;
+}
+.gender_area li > label{
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 6px 0;
+    border-radius: inherit;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    line-height: 18px;
+    color: #757575;
+    text-align: center;
+    cursor: pointer;
+}
+.gender_area li > input[type=radio]:checked+label{
+    border: 1px solid rgb(0,200,80);
+    color:rgb(0,200,80);
+}
+.zipcode_area > td > input[type=button]{ width:130px !important; }
+.hobby_area > td > div.hobby_list{
+    display:flex;
+    flex-wrap:wrap;
+}
+.hobby_input {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+.hobby_input > input[type=text]{
+    position:relative;
+    top:0;
+}
+.hobby_list{
+    display: flex;
+    flex-wrap: wrap;
+    width:450px;
+}
+.userhobby{
+    color: #666;
+    /* color:rgb(0,200,80); */
+    height:30px;
+    display:flex;
+    background-color: white;
+    margin-left:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:50px;
+    padding:3px 10px;
+    cursor: pointer;
+    align-items: center;
+    line-height: 30px;
+    vertical-align: middle;
+}
+.userhobby > span{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.xBox{
+    border:1px solid #ccc;
+    width:16px;
+    height:16px;
+    border-radius: 50%;
+    margin-left: 5px;
+    background:url("./images/xBox.png") 3px 50% / 60% no-repeat;
+}
+
+/* list */
+.list .category{
+    display: flex;
+    justify-content: space-between;
+}
+.list .total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#list{
+    width:1000px;
+    margin:30px auto;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-shadow: 1px 1px 3cm #666;
+}
+#list .row{
+    border-bottom:1px solid #ccc;
+    padding:10px 0;
+    text-align: center;
+}
+#list .row:nth-child(n+2):hover{
+    background-color: rgba(0,200,80,0.1);
+}
+#list .row .prodnum{
+    width:12.5%;
+}
+#list .row .prodname{
+    width:50%;
+}
+#list .row .regdate{
+    width:25%;
+}
+#list .row .userid{
+    width:12.5%;
+}
+#list .row .prodcategory{
+    font-weight: bold;
+    color:#e91e63;
+}
+
+#list .row:nth-child(1) div{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+#list.empty .row:nth-child(2){
+    display: block;
+    width:1000px;
+    text-align: center;
+    font-size: 18px;
+}
+#wrap.list .btn_area{
+    justify-content: end;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+.pagination *{
+    display: flex;
+    justify-content: center; align-items: center;
+    margin-left: 5px;
+    width: 25px; height: 25px;
+    background-color: rgb(0,200,80); color:white;
+    border-radius: 4px;
+}
+.pagination .arrow{
+    align-items: baseline;
+}
+.pagination span{
+    background-color: rgb(199, 119, 0);
+}
+.pagination a:hover{
+    background-color: rgb(199, 119, 0);
+}
+/* Add */
+#add,#modify{
+    width:1000px;
+    margin:30px auto;
+}
+#add .row,#get .row,
+#modify .row,#modify .row{
+    border-bottom:1px solid #ccc;
+    margin-bottom: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#add .row>div:nth-child(1), #get .row>div:nth-child(1),
+#modify .row>div:nth-child(1), #modify .row>div:nth-child(1){
+    padding:10px;
+    width:25%;
+    font-weight: bold;
+    color:white;
+    background-color: rgb(0, 199, 83);
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#add .row div.input_area,
+#modify .row div.input_area{
+    position: relative;
+    padding-left: 10px;
+}
+#add .row div input:not([type=button]), #add .row div textarea,
+#get .row div input:not([type=button]), #get .row div textarea,
+#modify .row div input:not([type=button]), #modify .row div textarea{
+    border:none;
+    width: 400px;
+    outline: none;
+}
+#add .row .common-dropdown,
+#modify .row .common-dropdown{
+    width:400px;
+    margin-left: 10px;
+    cursor: pointer;
+    z-index: 50;
+    padding-bottom: 10px;
+}
+#add .row textarea, #get .row textarea, #modify .row textarea{
+    width: 400px;
+    resize: none;
+    height: 500px;
+    font-size: 16px;
+}
+#add .btn_area #modify .btn_area{
+    margin-top: 40px;
+}
+/* Get */
+#get .row .get_area{
+    padding-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#get .like{
+    margin-left:10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
