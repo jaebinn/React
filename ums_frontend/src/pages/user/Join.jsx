@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from 'axios';
+import { useRef, useState } from "react";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import DaumPostCode from "../../components/DaumPostCode";
@@ -15,10 +16,24 @@ const Join = () => {
             ...inputs,
             [name]:value
         })
-        console.log(inputs)
     }
     const clickCheckId = () => {
-        
+        const result = document.getElementById("result");
+        if(!userid){
+            alert("아이디를 입력하세요!");
+            return;
+        }
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if(xhr.status == 200){
+                result.innerHTML = "사용할 수 있는 아이디입니다."
+            }
+            else if(xhr.status == 409){
+                result.innerHTML = "중복된 아이디가 있습니다."
+            }
+        }
+        xhr.open("GET",`/api/user/checkId?userid=${userid}`);
+        xhr.send()
     }
     const pwTest = [false,false,false,false,false]
     const pwCheck = () => {
@@ -74,14 +89,14 @@ const Join = () => {
         }
     }
 
-    const userhobby = [];
+    const userhobby = useRef([]);
     const clickAddHobby = () => {
         const hobby_list = document.getElementsByClassName("hobby_list")[0];
         if(hobby == ""){
             alert("취미를 입력해 주세요.")
             return;
         }
-        if(userhobby.indexOf(hobby) != -1){
+        if(userhobby.current.indexOf(hobby) != -1){
             alert("중복된 취미입니다.")
             return;
         }
@@ -89,7 +104,7 @@ const Join = () => {
             alert("정확한 취미를 입력해 주세요.")
             return;
         }
-        if(userhobby.length >= 5){
+        if(userhobby.current.length >= 5){
             alert("취미는 5개 이하로 입력해 주세요.")
             return;
         }
@@ -97,15 +112,15 @@ const Join = () => {
         inputHobby.classList = "userhobby";
         inputHobby.name = "userhobby";
         inputHobby.innerHTML = hobby;
-        userhobby.push(hobby);
+        userhobby.current.push(hobby);
         
         const xBox = document.createElement("a")
         xBox.classList = "xBox";
         inputHobby.appendChild(xBox);
         inputHobby.addEventListener("click",deleteHobby);
         hobby_list.appendChild(inputHobby);
-
     }
+
     function deleteHobby(e){
         let deleteNode = null;
         if(e.target.classList == "xBox"){
@@ -126,6 +141,32 @@ const Join = () => {
         deleteNode.remove();
     }
     const clickJoin = () => {
+        const user = {
+            userid:userid,
+            userpw:userpw,
+            username:username,
+            usergender:usergender+"-"+foreigner,
+            zipcode:document.getElementById("zipcode").value,
+            addr:document.getElementById("addr").value,
+            addrdetail:addrdetail,
+            addretc:document.getElementById("addretc").value,
+            userhobby:userhobby.current.join("\\")
+        }
+        console.log(user);
+
+        axios.post('/api/user/join',user)
+        .then(
+            resp=>{
+                if(resp.data == "O"){
+                    alert("회원가입 성공!");
+                    navigate("/");
+                }
+                else{
+                    alert("회원가입 실패 ㅠㅠ");
+                    navigate("/");
+                }
+            }
+        )
 
     }
     const clickBack = () => {
@@ -144,8 +185,8 @@ const Join = () => {
                         <tr className="userid_area">
                             <th>아이디</th>
                             <td>
-                                <input type="text" name="userid" className="input-with-btn"/>
-                                <Button value="중복검사" size="small"/>
+                                <input type="text" name="userid" className="input-with-btn" onChange={change}/>
+                                <Button value="중복검사" size="small" onClick={clickCheckId}/>
                             </td>
                         </tr>
                         <tr className="userpw_area">
@@ -249,7 +290,7 @@ const Join = () => {
                         
                         <tr>
                             <td colSpan={2}>
-                                <Button className='submit' value="가입 완료" size="half"/>
+                                <Button className='submit' value="가입 완료" size="half" onClick={clickJoin}/>
                                 <Button className='back' value="이전으로" size="half" onClick={clickBack}/>
                             </td>
                         </tr>
