@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.demo.mapper.ProductMapper">
+	<insert id="insertProduct">
+		insert into ums_product(prodname, prodprice, prodamount, prodinfo, prodcategory,
+		userid) values(#{prodname}, #{prodprice}, #{prodamount}, #{prodinfo}, #{prodcategory}, #{userid});
+	</insert>
+	
+	<update id="updateProduct">
+		update ums_product
+		set prodname=#{prodname}, prodprice=#{prodprice}, prodamount=#{prodamount},
+		prodinf=#{prodinfo}, prodcategory=#{prodcategory}
+		where prodnum=#{prodnum}
+	</update>
+	<update id="updateLikeCnt">
+		update ums_product
+		set likecnt=likecnt+1
+		where prodnum=#{prodnum}
+	</update>
+	<delete id="deleteProduct">
+		delete from ums_product where prodnum=#{prodnum}
+	</delete>
+	<delete id="deleteProducts">
+		delete from ums_product where userid=#{userid}
+	</delete>
+	<select id="selectProductByProdnum">
+		select * from ums_product where prodnum=#{prodnum}
+	</select>
+	<select id="countProduct">
+		select count(*) from ums_product
+		<where>
+			<if test="category != 'none'">
+				prodcategory=#{category}
+			</if>
+		</where>
+	</select>
+	<select id="selectProducts">
+		select * from ums_product
+		<where>
+			<if test="cri.category != 'none'">
+				prodcategory=#{cri.category}
+			</if>
+		</where>
+		order by prodnum desc limit #{startrow}, #{cri.amount}
+	</select>
+</mapper>

@@ -6,6 +6,12 @@ import com.kh.demo.domain.dto.UserDTO;
 
 @Mapper
 public interface UserMapper {
+	//C
 	int insertUser(UserDTO user);
+	//R
 	UserDTO selectUserById(String userid); 
+	//U
+	int updateUser(UserDTO user);
+	//D
+	int deleteUser(String userid);
 }

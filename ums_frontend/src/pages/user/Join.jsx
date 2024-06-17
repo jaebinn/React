@@ -11,7 +11,7 @@ const Join = () => {
     const navigate = useNavigate();
 
     const change = (e) => {
-        const {name,value} = e.target;
+        const {name,value} = e.target; 
         setInputs({
             ...inputs,
             [name]:value

@@ -8,4 +8,13 @@
   <select id="selectUserById">
     select * from ums_user where userid = #{userid}
   </select>
+  <update id="updateUser">
+	update ums_user 
+	set userpw=#{userpw}, zipcode=#{zipcode}m addr=#{addr}
+	addrdetail=#{addrdetail}, addretc=#{addretc}, userhobby=#{userhobyy}
+	where userid=#{userid}
+  </update>
+  <delete id="deleteUser">
+	delete from user where userid=#{userid}
+  </delete>
 </mapper>
