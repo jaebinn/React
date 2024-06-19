@@ -11,7 +11,7 @@ const Join = () => {
     const navigate = useNavigate();
 
     const change = (e) => {
-        const {name,value} = e.target; 
+        const {name,value} = e.target;
         setInputs({
             ...inputs,
             [name]:value
@@ -132,9 +132,9 @@ const Join = () => {
         
         let txt = deleteNode.innerText;
         console.log(txt);
-        for(let i in userhobby){
-            if(userhobby[i] == txt){
-                userhobby.splice(i,1);
+        for(let i in userhobby.current){
+            if(userhobby.current[i] == txt){
+                userhobby.current.splice(i,1);
                 break;
             }
         }

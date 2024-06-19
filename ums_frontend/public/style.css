@@ -262,12 +262,12 @@ footer > .center > .sns_area > .sns_box .thread .text{
 }
 
 /* LoginPage*/
-
 #wrap.login{
-    width: 600px;
-    height: 400px;
-    margin: 100px auto;
+    width:600px;
+    height:400px;
+    margin:100px auto;
 }
+
 /* JoinPage */
 [name=joinForm] td, [name=myinfoForm] td{
     text-align: center;
@@ -567,7 +567,7 @@ footer > .center > .sns_area > .sns_box .thread .text{
     height: 500px;
     font-size: 16px;
 }
-#add .btn_area #modify .btn_area{
+#add .btn_area, #modify .btn_area{
     margin-top: 40px;
 }
 /* Get */

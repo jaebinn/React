@@ -1,9 +1,9 @@
 import Button from "./Button";
-import {useDaumPostcodePopup} from 'react-daum-postcode'
+import {useDaumPostcodePopup} from 'react-daum-postcode';
 
 const DaumPostCode = () => {
     const open = useDaumPostcodePopup("https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js");
-  
+
     const handleComplete = function(data) {
         // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
@@ -49,9 +49,10 @@ const DaumPostCode = () => {
         document.getElementById("addrdetail").focus();
     }
 
-    const handleClick = () => {
+    const handleClick = ()=>{
         open({onComplete:handleComplete});
     }
+
     return (
         <Button id="post_btn" value="우편번호 찾기" size="small" onClick={handleClick}></Button>
     )
